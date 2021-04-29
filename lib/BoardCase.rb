@@ -1,5 +1,3 @@
-require 'pry'
-
 class BoardCase 
     attr_accessor :case_number, :case_value
 
@@ -10,5 +8,3 @@ class BoardCase
     end
 
 end
-
-#binding.pry

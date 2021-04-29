@@ -1,5 +1,3 @@
-require 'pry'
-
 class Board 
 	attr_accessor :array_board, :a1, :a2, :a3, :b1, :b2, :b3, :c1, :c2, :c3
 
@@ -26,19 +24,11 @@ class Board
 
 
 
-		# for i in 1..9
-		#   case_number = i 
-		#   @array_board << BoardCase.new(case_number)
-		# end 
-
 	end
 
 	def play_turn(player1, player2)
 		player1_symbol = "X"
 		player2_symbol = "O"
-		#TO DO : une méthode qui :
-		#1) demande au bon joueur ce qu'il souhaite faire
-		#2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
 		
 		puts "#{@current_player} c'est à toi de jouer"
 		turn_number = 1
@@ -49,9 +39,7 @@ class Board
 			puts "Sur quelle case veux-tu jouer ?"
 			puts "> "
 
-			chosen_number = gets.chomp.to_i #Le joueur choisir un chiffre entre 1 et 9 
-			#case_chosen = BoardCase.case_number(numero_choisi) 
-
+			chosen_number = gets.chomp.to_i 
 			case chosen_number
 			when 1 
 			  if @a1.case_value == "" && @current_player == @player1
@@ -136,7 +124,7 @@ class Board
 	end
 
 	def victory
-		#TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
+	
     if @a1.case_value == "X" && @a2.case_value == "X" && @a3.case_value == "X"
       return true
 	  elsif @a1.case_value == "O" && @a2.case_value == "O" && @a3.case_value == "O"
@@ -144,35 +132,8 @@ class Board
     else
       return false
     end
-	#   win_combination = [[@a1,@a2, @a3], [@b1, @b2, @b3], [@c1, @c2, @c3], [@a1, @b1, @c1], [@a2, @b2, @c2], [@a3, @b3, @c3], [@a1, @b2, @c3], [@a3, @b2, @c1]]
-	#   @win_combination.each do |i|
-	# 	j = 0
-	# 	i.each do |f|
-	# 		if j < 2
-	# 			next if f == ["X"]
-	# 		else
-	# 			break
-	# 		end
-	# 		if f == ["X"]
-	# 			return true 
-	# 		end
-	# 		j += 1
-	# 	end 
-	# end
+		
 	end
 
-	# def match_nul(turn_played)
-	#   if turn_played == 9 
-	# 	if victory == false 
-	# 	  return true
-	# 	end
-	#   end
-	# end  
-		#     array_board.each do |i|  
-		#     if !victory? && !@value.empty?
-		#         return true
-		#     end
-		#   end 
 end
 
-#binding.pry
