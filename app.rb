@@ -9,20 +9,24 @@ Bundler.require
 
 class Application
 
-  my_game = Game.new
+  def perform
+    my_game = Game.new
 
-  my_game.lets_go
+    my_game.lets_go
 
-  while my_game.status == "Ongoing"
-    
-    my_game.turn
-    
-    
-    
-    
+    while my_game.status == "Ongoing"
+      
+      my_game.turn
+      
+      
+      
+      
 
-    
+      
+    end
+    my_game.game_end(my_game.lets_go)
   end
-  my_game.game_end(my_game.lets_go)
 
 end
+
+Application.new.perform
